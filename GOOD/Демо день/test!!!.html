@@ -1,0 +1,167 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Демо-день</title>
+    <p>Дана числовая матрица M1(N, N).<br>
+        1) Получить матрицу М2 из M1, расположив элементы матрицы M1 в порядке возрастания (построчно слева
+        направо).<br>
+        2) Получить матрицы М3 и М4, заменяя нулями в матрицах M1 и M2 (соответственно) элементы с четной суммой
+        индексов (то есть I+J в сумме должны давать четное число).<br>
+
+        3) Сравнить сумму элементов матрицы М3 с суммой элементов матрицы М4.<br>
+        4) Получить матрицу М5, используя следующие условия:<br>
+        - если сумма элементов матрицы М3 больше суммы элементов матрицы М4, то элемент матрицы М5 получить так:<br>
+        из соответствующего элемента матрицы М3 вычесть соответствующий элемент матрицы М1;<br>
+        - в противном случае, к соответствующему элементу матрицы М3 прибавить соответствующий элемент матрицы М4.<br>
+        5) Напечатать матрицы М2, M5.</p>
+</head>
+
+<body>
+    <script>
+        let arr = [];
+        let input = +prompt('1 - задать матрицу самостоятельно \n2 - получить случайную матрицу \nНажмите "OK", чтобы получить стандартную матрицу');
+        let n;
+
+        switch (input) {
+            case 1:
+                n = +prompt("Введите N (порядок квадратной матрицы M1)");
+                for (let i = 0; i < n; i++) {
+                    arr[i] = [];
+                    for (let j = 0; j < n; j++) {
+                        arr[i][j] = +prompt("Введите значение элемента матрицы M1(" + (i + 1) + "," + (j + 1) + ")");
+                    }
+                } break;
+            case 2:
+                n = +prompt("Введите N (порядок квадратной матрицы M1)");
+                for (let i = 0; i < n; i++) {
+                    arr[i] = [];
+                    for (let j = 0; j < n; j++) {
+                        arr[i][j] = Math.floor(Math.random() * 99) + 1;
+                    }
+                } break;
+            default:
+                arr = [
+                    [15, 1, 9, 4],
+                    [8, 12, 16, 2],
+                    [13, 10, 5, 7],
+                    [3, 6, 11, 14],
+                ];
+                n = arr.length;
+                break;
+        }
+
+        let M1 = arr;
+        let M2 = matrix_b(M1)
+        let M3 = add_zero(M1)
+        let M4 = add_zero(M2)
+        let M3_sum = sum(M3);
+        let M4_sum = sum(M4);
+        let M5;
+
+        //матрица M2
+        function matrix_b(mas) {
+            let arr = [];
+            let arr_2 = [];
+            let k = 0;
+            for (let i = 0; i < n; i++) {
+                for (let j = 0; j < n; j++) {
+                    arr[k] = mas[i][j];
+                    k++;
+                }
+            }
+            arr.sort(function (a, b) {
+                return a - b;
+            });
+            while (arr.length) {
+                arr_2.push(arr.splice(0, n));
+            } return arr_2;
+        }
+
+        // матрица M3 и M4
+        function add_zero(mas) {
+            let arr = JSON.parse(JSON.stringify(mas))
+            for (i = 0; i < n; i++) {
+                for (j = 0; j < n; j++) {
+                    if ((i + j) % 2 == 0) {
+                        arr[i][j] = 0;
+                    }
+                }
+            } return arr;
+        }
+
+        // Сумма элементов матрицы
+        function sum(mas) {
+            let sum = 0;
+            for (let i = 0; i < n; i++) {
+                for (let j = 0; j < n; j++) {
+                    sum += mas[i][j]
+                }
+            } return sum;
+        }
+
+        // Сумма двух матриц
+        function sum_matrix(mas, mas_2) {
+            let arr = JSON.parse(JSON.stringify(mas))
+            for (let i = 0; i < n; i++) {
+                for (let j = 0; j < n; j++) {
+                    arr[i][j] += mas_2[i][j]
+                }
+            } return arr;
+        }
+
+        // Разность двух матриц
+        function dif_matrix(mas, mas_2) {
+            let arr = JSON.parse(JSON.stringify(mas))
+            for (let i = 0; i < n; i++) {
+                for (let j = 0; j < n; j++) {
+                    arr[i][j] -= mas_2[i][j]
+                }
+            } return arr;
+        }
+
+        console.log("Матрица M1:");
+        console.log(M1);
+        console.log("Матрица M2:");
+        console.log(M2);
+        console.log("Матрица M3:");
+        console.log(M3);
+        console.log("Матрица M4:");
+        console.log(M4);
+        console.log("Сумма элементов матрицы M3: " + M3_sum);
+        console.log("Сумма элементов матрицы M4: " + M4_sum);
+
+        if (M3_sum > M4_sum) {
+            M5 = dif_matrix(M3, M1);
+            console.log("Матрица M5:");
+            console.log(M5);
+        } else {
+            M5 = sum_matrix(M3, M4);
+            console.log("Матрица M5:");
+            console.log(M5);
+        }
+
+        //Вывод M2
+        document.write("<table border='1' width=20% height=20% align=center bgcolor=white>>");
+        document.write('<caption><h3>Матрица M2</h3></caption>');
+        for (let i = 0; i < n; i++) {
+            document.write("<tr>");
+            for (let j = 0; j < n; j++) {
+                document.write("<td align='center'>" + M2[i][j] + "</td>");
+            }
+        }
+
+        //Вывод M5
+        document.write("<table border='1' width=20% height=20% align=center bgcolor=white>>");
+        document.write('<caption><h3>Матрица M5</h3></caption>');
+        for (let i = 0; i < n; i++) {
+            document.write("<tr>");
+            for (let j = 0; j < n; j++) {
+                document.write("<td align='center'>" + M5[i][j] + "</td>");
+            }
+        }
+
+    </script>
+</body>
+
+</html>

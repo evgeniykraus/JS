@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> День недели </title>
+
+    <script>
+        function getUserNumber(prompt_text) {
+        let user_input = null;
+        while (isNaN(user_input) || !Number.isInteger(user_input)) {
+        user_input = parseInt(prompt(prompt_text));
+        }
+    
+        return user_input;
+    }
+
+        let day = getUserNumber("Введите день:"); 
+        let month = getUserNumber("Введите месяц:");
+        let year = getUserNumber("Введите год:");
+
+        function getWeekDay(year, month, day) {
+        let names = ["воскресенье", "понедельник", "вторник", "среда", "четверг", "пятница", "суббота"];
+        let d = new Date(year, month-1, day);
+
+        console.log(d.getDay() + " соответствует дню недели " + (names[d.getDay()])); //номер дня недели
+    
+        if (names[d.getDay()] == "воскресенье"){
+            alert("В этот день было " + (names[d.getDay()]) + "!");
+        }else if((names[d.getDay()]) == "среда" || (names[d.getDay()]) == "пятница"|| (names[d.getDay()]) == "суббота"){
+            alert("В этот день была " + (names[d.getDay()]) + "!");
+        }else{
+            alert("В этот день был " + (names[d.getDay()] + "!"));
+        }
+    }
+        getWeekDay(year, month, day);
+    
+    </script>
+    
+</head>
+
+<body>
+    <h1> День недели </h1>
+</body>
+
+</html?>

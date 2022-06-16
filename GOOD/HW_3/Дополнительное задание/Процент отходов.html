@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <script>
+        //Ввод исходных данных
+        let A = Number(prompt("Введите длину стороны шестиугольника")); // Длина стороны шестиугольника
+        let H = A * 2; //Высота цилиндра
+
+        //Решение
+        let S_osn = (3 * Math.sqrt(3)) / 2 * A ** 2; // Площадь основания призмы
+        let S_bok = 6 * A * H; // Площадь боковой поверхности призмы
+        let S_prizm = 2 * S_osn + S_bok; // Площадь призмы
+        let V_prizm = S_osn * H; // Объем призмы
+
+        let R_okr = Math.sqrt(3) * A / 2; // Радиус окружности
+        let V_cylinder = Math.PI * R_okr ** 2 * H; // Объем цилиндра
+        let V_oth = (V_prizm - V_cylinder) * 100 / V_prizm; // Объем отходов
+
+        //Вывод результата
+        alert(`Дано: \n Длина стороны шестиугольника: A = ${A} \n Высота цилиндра: H = ${H} \n
+Ответ:\n Объем призмы: ${V_prizm.toFixed(2)} \n Объем цилиндра: ${V_cylinder.toFixed(2)} \n Объем отходов: ${V_oth.toFixed(2)}%`);
+
+        console.log(V_oth + '%' + ' Объем отходов');
+        console.log(V_cylinder + ' Объем цилиндра');
+        console.log(R_okr + ' Радиус окружности');
+        console.log(V_prizm + ' Объем призмы');
+        console.log(S_osn + ' Площадь основания призмы');
+        console.log(H + ' Высота цилиндра');
+
+    </script>
+</head>
+
+<body>
+    <h1> </h1>
+</body>
+
+</html>

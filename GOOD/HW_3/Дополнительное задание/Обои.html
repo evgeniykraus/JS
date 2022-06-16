@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <script>
+        //Ввод исходных данных
+        let A = Number(prompt("Введите длину стены в комнате (м)"));
+        let H = Number(prompt("Введите высоту потолков (м)"));
+        let Wind_count = 2; // Количество окон в комнате
+        let Wind_S = Wind_count * (1.45 * 1.35); // Площадь двух стандартных окон (стандарт для окна 700х1350 мм)
+        let Door_S = 2.07 * 0.89; // Площадь дверного проема (стандарт проема +- 2070х890 мм) 
+        let Wallpaper_S = 10.05 * 0.53; // Ширина стандартных обоев 530 мм, 700 мм и 1060 мм / Длина 100050 мм и 250000 мм
+
+        //Решение
+        let P_room = A * 4; // Периметр квадратной комнаты
+        let S_wall = P_room * H - Wind_S - Door_S; // Площадь стен (без окон и дверей)
+        let Wallpaper_count = Math.ceil(S_wall / Wallpaper_S); // Нужное кол-во рулонов
+        let Wallpaper_rest = Wallpaper_count * Wallpaper_S - S_wall; // Остаток последнего рулона (кв.м.)
+        let Wallpaper_percent = Wallpaper_rest / Wallpaper_S * 100; // Остаток последнего рулона (в процентах)
+
+        //Вывод результата
+        console.log(`Дано: \n Длина стены: ${A} м. \n Высота потолка: ${H} м.\n Количество окон: ${Wind_count} x 700х1350 мм.
+ Количество дверей: 1 x 2070х890 мм.\n Размер обоев 100050 * 530 мм
+Ответ:\n Площадь стен для поклейки обоев: ${S_wall.toFixed(2)} кв.м. \n Рулонов обоев потребуется: ${Wallpaper_count} шт.
+ Остаток последнего рулона: ${Wallpaper_rest.toFixed(2)} кв.м. (${Math.ceil(Wallpaper_percent)}%)`);
+
+    </script>
+</head>
+
+<body>
+    <h1> </h1>
+</body>
+
+</html>

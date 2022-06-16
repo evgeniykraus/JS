@@ -1,0 +1,64 @@
+<html>
+
+<head>
+    <script>
+        let massiv = [-2, -1, -2, -2, -88, -88, -1, -1, -1, 2, 2, -2, 2, -88, 11, 11, 11, 2, 11, -88];
+        let n = massiv.length;
+        let curr_count = 1;
+        let max_count = 1
+        let res = massiv[0];
+
+        function binar_poisk(massiv, s, min, max) {
+            while (min <= max) {
+                let mid = Math.floor(min + (max - min) / 2);
+                if (s == massiv[mid])
+                    return mid + 1;
+                else if (s > massiv[mid])
+                    min = mid + 1;
+                else
+                    max = mid - 1;
+            }
+            return min;
+        }
+
+        function binar_sort(massiv, N) {
+            let i, loc, j, k, s;
+            for (i = 1; i < N; ++i) {
+                j = i - 1;
+                s = massiv[i];
+                loc = binar_poisk(massiv, s, 0, j);
+                while (j >= loc) {
+                    massiv[j + 1] = massiv[j];
+                    j--;
+                }
+                massiv[j + 1] = s;
+            }
+            return massiv;
+        }
+        console.log("Исходный массив:");
+        console.log(massiv);
+        binar_sort(massiv, n);
+
+        for (let i = 1; i < n; i++) {
+            if (massiv[i] == massiv[i - 1])
+                curr_count++;
+            else
+                curr_count = 1;
+
+            if (curr_count > max_count) {
+                max_count = curr_count;
+                res = massiv[i - 1];
+            }
+        }
+
+        console.log("Отсортированный массив:");
+        console.log(binar_sort(massiv, n));
+        console.log("Наиболее часто встречающееся число: " + res + "\nВ массиве таких чисел: " + max_count)
+    </script>
+</head>
+
+<body>
+    <h1> </h1>
+</body>
+
+</html>

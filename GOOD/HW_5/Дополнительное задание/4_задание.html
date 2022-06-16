@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <script>
+        let count = 0;
+        let sum = 0;
+        let k = 3672;
+
+        while (k <= 9117) {
+            if (k % 3 == 2 && k % 5 == 4) {
+                count += 1;
+                sum += k;
+                k += 1;
+            } else {
+                k += 1
+            }
+        }
+        console.log("Сумма подходящих чисел = " + sum);
+        console.log("Количество подходящих чисел = " + count);
+
+    </script>
+</head>
+
+<body>
+    <h1> </h1>
+</body>
+
+</html>

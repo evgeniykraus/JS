@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <script>
+        //Ввод исходных данных
+        let X = Math.random().toFixed();
+        let Y = Math.random().toFixed();
+        let Z = Math.random().toFixed();
+        let A;
+
+        //Решение (x * y) -> (y= z)
+        A = (X && Y) <= (Y == Z)
+
+        //Вывод результата
+        console.log("Конъюнкция (x * y)")
+        console.log("X = " + X);
+        console.log("Y = " + Y);
+        console.log((X * Y) == 1);
+        console.log("");
+
+        console.log("Эквивалентность (y = z)")
+        console.log("Z = " + Z);
+        console.log("Y = " + Y);
+        console.log(Y == Z);
+        console.log("");
+
+        console.log("Импликация (x * y) -> (y = z)")
+        console.log("A = " + X * Y);
+        console.log("B = " + Number(Y == Z));
+        console.log(X * Y <= (Y == Z));
+
+        alert("Логическое выражение ( " + X + " * " + Y + ") " + " -> " + "(" + Y + " = " + Z + ") " + A);
+    </script>
+</head>
+
+<body>
+    <h1> </h1>
+</body>
+
+</html>

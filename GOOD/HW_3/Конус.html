@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <script>
+        //Ввод исходных данных
+        let Sosn = Number(prompt("Введите площадь основания конуса")); // Площадь основания конуса
+
+        //Решение
+        let h_cone = Math.sqrt(Sosn / Math.PI) * 2; // Высота конуса = Диаметр основания
+        let r_cone = h_cone / 2; // Радиус основания
+        let V_cone = 1 / 3 * Math.PI * (h_cone / 2) ** 2 * h_cone; // Объем конуса
+        let L_cone = Math.sqrt(h_cone ** 2 + r_cone ** 2); // Образующая конуса
+        let S_cone = Math.PI * r_cone * L_cone + Math.PI * r_cone ** 2;  // Площадь конуса
+
+        //Вывод результата
+        alert(`Дано: \n Площадь основания конуса: ${Sosn} \nОтвет:\n Объем конуса: ${V_cone.toFixed(2)}
+ Площадь конуса: ${S_cone.toFixed(2)}`);
+
+    </script>
+</head>
+
+<body>
+    <h1> </h1>
+</body>
+
+</html>

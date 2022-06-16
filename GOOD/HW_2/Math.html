@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>  </title>
+
+    <script>
+        
+        let number_1 = 1.8432611;
+        let number_2 = 1.83;
+        let number_3 = 5.1;
+
+        function truncated_2(number_) {
+        return Math.trunc(number_ * 100) / 100;
+        }
+
+        console.log("Округление до второго знака после запятой.\n");
+        console.log(truncated_2(number_1));
+        console.log(truncated_2(number_2));
+        console.log(truncated_2(number_3));
+
+        console.log("Округление до целого числа.\n");
+        console.log(number_1*10e6*18432611/169880574138660.5);
+        console.log(number_2*100*2/183);
+        console.log(number_3*10*5/51);
+        
+
+        function truncated_4(number_){
+        return Math.trunc(number_/0.1001*1000)/10000;
+        }
+
+        console.log("Округление до четвёртого знака после запятой.");
+        console.log(truncated_4(number_1));
+        console.log(truncated_4(number_2));
+        console.log(truncated_4(number_3));
+        
+    </script>
+    
+</head>
+
+<body>
+    <h1>  </h1>
+</body>
+
+</html?>

@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <script>
+
+        // Ввод данных
+        let x1 = Number(prompt("Введите координату х точки A"));
+        let y1 = Number(prompt("Введите координату y точки A"));
+
+        let x2 = Number(prompt("Введите координату х точки B"));
+        let y2 = Number(prompt("Введите координату y точки B"));
+
+        let x3 = Number(prompt("Введите координату х точки C"));
+        let y3 = Number(prompt("Введите координату y точки C"));
+
+        // Решение
+        let OA = Math.sqrt(Math.pow(x1, 2) + Math.pow(y1, 2));
+        let OB = Math.sqrt(Math.pow(x2, 2) + Math.pow(y2, 2));
+        let AC = Math.sqrt(Math.pow(x1 - x3, 2) + Math.pow(y3 - y1, 2));
+        let BC = Math.sqrt(Math.pow(x3 - x2, 2) + Math.pow(y3 - y2, 2));
+
+        let sOA = Math.PI * Math.pow(OA, 2); // Площадь круга
+        let sOB = Math.pow(OB, 2); // Площадь квадрата
+        let sACBC = AC * BC; // Площадь прямоугольника
+
+		 if (sOA > sOB && sOA > sACBC) {
+			 alert("Большую площадь имеет круг с радиусом OA")
+		 } else if (sOB > sOA && sOB > sACBC) {
+			alert("Большую площадь имеет квадрат со стороной OB")
+		 } else if (sACBC > sOB && sACBC > sOA) {
+			alert("Большую площадь имеет прямоугольник со сторонами AC и BC")
+		 } else {
+			 alert("Есть равные площади фигур")
+		 }
+
+         console.log("OA= " + OA);
+         console.log("OB= " + OB);
+         console.log("AC= " + AC);
+         console.log("BC= " + BC);
+         console.log();
+         console.log("Площадь круга = " + sOA);
+         console.log("Площадь квадрата = " + sOB);
+         console.log("Площадь прямоугольника = " + sACBC);
+
+    </script>
+</head>
+
+<body>
+    <h1> </h1>
+</body>
+
+</html>

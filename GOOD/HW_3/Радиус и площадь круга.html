@@ -1,0 +1,24 @@
+<html>
+
+<head>
+    <script>
+        //Ввод исходных данных
+        let L = Number(prompt("Введите длину окружности")); // Длина окружности
+
+        //Решение
+        let S_circle = L ** 2 / (4 * Math.PI); // Площадь круга
+        let r_circle = Math.sqrt(S_circle / Math.PI); // Радиус круга
+        let a_square = Math.sqrt(S_circle); // Сторона квадрата
+
+        //Вывод результата
+        alert(`Дано: \n Длина окружности: ${L} \nОтвет:\n Площадь круга: ${S_circle.toFixed(2)} \n Радиус круга: ${r_circle.toFixed(2)}
+ Сторона квадрата: ${a_square.toFixed(2)}`);
+
+    </script>
+</head>
+
+<body>
+    <h1> </h1>
+</body>
+
+</html>

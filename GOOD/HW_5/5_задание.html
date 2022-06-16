@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <script>
+        let n = 452022;
+        let k = 0;
+        let j = Math.round(Math.sqrt(n));
+
+        while (k < 5) {
+            for (let i = 2; i <= j; i++) {
+                if (n % i == 0)
+                    if ((i + n / i) % 7 == 3) {
+                        k += 1
+                        console.log(`Минимальный делитель = ${i} \nМаксимальный делитель = ${n / i}`);
+                        console.log(`N = ${n}  |  M = ${i + n / i}`);
+                        console.log("")
+                        break;
+                    }
+                    else {
+                        break;
+                    }
+            }
+            n += 1
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1> </h1>
+</body>
+
+</html>

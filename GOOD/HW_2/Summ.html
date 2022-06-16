@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> Домашнее задание №2 </title>
+
+    <script>
+    function getUserNumber(prompt_text) {
+        let user_input = null;
+        console.log(typeof(user_input));
+        while (isNaN(user_input) || !Number.isInteger(user_input)) {
+        user_input = parseInt(prompt(prompt_text));
+        }
+        
+        return user_input;
+    }
+
+    let number_1 = getUserNumber("Введите первое число");
+    console.log(typeof(number_1));
+    let number_2 = getUserNumber("Введите второе число");
+    console.log(typeof(number_2));
+
+    alert(`${number_1} + ${number_2} = ` + (number_1+number_2));
+    console.log(typeof(number_1+number_2));
+    </script>
+    
+</head>
+
+<body>
+    <h1> Домашнее задание №2 </h1>
+</body>
+
+</html?>

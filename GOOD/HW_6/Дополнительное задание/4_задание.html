@@ -1,0 +1,84 @@
+<html>
+
+<head>
+    <script>
+        let s = 100000; // Объем памяти
+        let massiv = []; // Исходный массив
+        let n = massiv.length; // Количество пользователей
+        let count;
+        let sum = 0;
+        let k;
+        let vvod = +prompt('1 - задать массив самостоятельно \n2 - получить случайный массив \nНажмите "OK", чтобы получить стандартнйы массив');
+
+        switch (vvod) {
+            case 1:
+                n = +prompt("Укажите количество пользователей:")
+                for (let i = 0; i < n; i++) {
+                    massiv[i] = +prompt("Размер файла " + (i + 1) + " первого пользователя равен:");
+                } break;
+            case 2:
+                n = +prompt("Укажите количество пользователей:")
+                for (let i = 0; i < n; i++) {
+                    massiv[i] = Math.floor(Math.random() * 100) + 1;
+                } break;
+            default:
+                massiv = [69820, 49373, 70883, 64099, 49391, 50498, 68445, 38395, 64247, 51391];
+                n = massiv.length;
+                break;
+        }
+        // Массив валидных значений
+        function valid_massiv(arr_2) {
+            let arr = []
+            for (i = 0; i < n; i++) {
+                if (arr_2[i] <= s && arr_2[i] > 0) {
+                    arr.push(arr_2[i]);
+                }
+            } return arr.sort(function (a, b) {
+                return a - b;
+            });
+        }
+
+        let massiv_2 = valid_massiv(massiv); // Массив валидных значений
+
+        // Максимальное значение массива
+        function getMaxOfArray(numArray) {
+            return Math.max.apply(null, numArray);
+        }
+        for (let i = 0; sum + massiv_2[i] <= s; i++) {
+            sum += massiv_2[i];
+            count = i + 1;
+            k = i - 1;
+        }
+        if (count == undefined) {
+            console.log("Объем памяти: " + s);
+            console.log("Исходный массив");
+            console.log(massiv);
+            console.log("Все файлы массива имеют больший размер, чем объем памяти(" + s + ")");
+        } else if (count == 1) {
+            console.log("Объем памяти: " + s);
+            console.log("Исходный массив");
+            console.log(massiv);
+            console.log("Массив валидных значений");
+            console.log(massiv_2);
+            console.log("Можно сохранить файлов: " + count);
+            console.log("Наибольший объём файла составляет: " + getMaxOfArray(massiv_2));
+        } else {
+            for (let i = 0; massiv_2[k] + massiv_2[i] < s; i++) {
+                count = i;
+            }
+            console.log("Объем памяти: " + s);
+            console.log("Исходный массив");
+            console.log(massiv);
+            console.log("Массив валидных значений");
+            console.log(massiv_2);
+            console.log("Можно сохранить файлов: " + (k + 2));
+            console.log("Наибольший объём файла составляет: " + massiv_2[count]);
+        }
+    </script>
+</head>
+
+<body>
+    <h1> </h1>
+</body>
+
+</html>

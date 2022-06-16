@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> Рандомное число </title>
+
+    <script>
+        function getUserNumber(prompt_text) {
+        let user_input = null;
+        while (isNaN(user_input) || !Number.isInteger(user_input)) {
+        user_input = parseInt(prompt(prompt_text));
+        }
+
+        return user_input;
+    }
+
+        function randomInteger(min, max) {
+        let rand = min - 0.5 + Math.random() * (max - min + 1);
+        return Math.round(rand);
+    }
+
+        let number_1 = getUserNumber("Введите начало диапозона");
+        let number_2 = getUserNumber("Введите конец диапозона");
+        
+        alert(randomInteger(number_1, number_2));
+
+    </script>
+    
+</head>
+
+<body>
+    <h1> Рандомное число </h1>
+</body>
+
+</html?>

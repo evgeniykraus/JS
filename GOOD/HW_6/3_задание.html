@@ -1,0 +1,78 @@
+<html>
+
+<head>
+    <script>
+        function getRandomIntInclusive(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        let N;
+        let i = 0;
+        let n = 0;
+        let k = 0;
+        let sum = 1;
+        let massiv = [];
+        let vvod = +prompt("Введите 1, чтоб задать массив самостоятельно \nВведите 2, чтоб получить случайный массив");
+
+        switch (vvod) {
+            case 1:
+                N = +prompt("Укажите длину массива")
+                for (let i = 0; i < N; i++) {
+                    massiv[i] = +prompt((i + 1) + " элемент массива равен");
+                } break;
+            case 2:
+                N = +prompt("Укажите длину массива")
+                for (let i = 0; i < N; i++) {
+                    massiv[i] = getRandomIntInclusive(1, 100);
+                } break;
+            default:
+                massiv = [85, 41, 10, 21, 68, 81, 39, 32, 98, 44];
+                break;
+        }
+
+        let min = massiv[0];
+        let max = massiv[0];
+        // Min & Max
+        for (let i = 0; i < massiv.length; i++) {
+            if (min > massiv[i]) {
+                min = massiv[i];
+            } else if (max < massiv[i]) {
+                max = massiv[i];
+            }
+        }
+
+        let index_max = massiv.indexOf(max);
+        let index_min = massiv.indexOf(min);
+
+        if (index_max > index_min) {
+            n = index_max;
+            i = index_min + 1;
+        } else {
+            n = index_min;
+            i = index_max + 1;
+        }
+
+        for (i; i < n; i++) {
+            sum *= massiv[i];
+            k++
+        }
+
+        if (sum == 1) {
+            sum -= 1;
+        }
+
+        console.log("Исходный массив: " + massiv);
+        console.log("Min: " + min);
+        console.log("Max: " + max);
+        console.log("Произведение: " + sum);
+        console.log("Кол-во элементов произведения: " + k);
+    </script>
+</head>
+
+<body>
+    <h1> </h1>
+</body>
+
+</html>

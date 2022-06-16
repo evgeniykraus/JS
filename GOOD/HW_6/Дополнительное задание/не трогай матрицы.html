@@ -1,0 +1,145 @@
+<html>
+
+<head>
+    <script>
+        let n = 4;
+        let h = n;
+        let massiv = []; //Пустая матрица
+        let massiv_1 = matrix_1(); //Единичная матрица
+        let massiv_2 = matrix_2(); //Треугольная матрица
+        let massiv_3 = TransMatrix(massiv_2); //Транспонированная матрица
+        let massiv_4 = multMatrixNumber(3, massiv_3); // Умножение матрицы на 3
+        let massiv_5 = MatrixPow(2, massiv_2); //Возведение матрицы во 2ю степень
+        let massiv_6 = SumMatrix(massiv_5, massiv_4)//Сложение матриц A
+        let massiv_7 = SumMatrix(massiv_6, massiv_1)//Сложение матриц A
+
+
+
+        //Пустая матрица
+        for (let i = 0; i < h; i++) {
+            massiv[i] = [];
+            for (let j = 0; j < n; j++) {
+                massiv[i][j] = 0;
+            }
+        }
+
+        // Единичная матрица
+        function matrix_1() {
+            let massiv_1 = [];
+            for (let i = 0; i < h; i++) {
+                massiv_1[i] = [];
+                for (let j = 0; j < n; j++) {
+                    massiv_1[i][j] = 0;
+                }
+            }
+
+            for (let i = 0; i < h; i++) {
+                for (let j = 0; j < n; j++) {
+                    massiv_1[i][j] = Math.floor(Math.random() * (9 - 1 + 1) + 1); // Заполнить случайно!
+                    i++;
+                }
+            }
+            return massiv_1;
+        }
+
+        //Треугольная матрица
+        function matrix_2() {
+            let massiv_2 = [];
+            for (i = 0; i < n; ++i) {   // Заполняем строку с номером i
+                massiv_2[i] = [];
+                for (j = 0; j < i; j++) {
+                    massiv_2[i][j] = 0;    // Сначала пишем 0 ниже диагонали
+                }
+                massiv_2[i][j] = Math.floor(Math.random() * (9 - 1 + 1) + 1);;        // После завершения предыдущего цикла i==j, пишем 1
+                for (++j; j < n; ++j)  // Цикл начинаем с увеличения j на 1
+                {
+                    massiv_2[i][j] = Math.floor(Math.random() * (9 - 1 + 1) + 1);;    // Записываем 1 выше диагонали
+                }
+            }
+            return massiv_2;
+        }
+
+
+        //Транспонирование матрицы
+        function TransMatrix(A) {
+            let m = A.length;
+            let n = A[0].length;
+            let AT = [];
+            for (let i = 0; i < n; i++) {
+                AT[i] = [];
+                for (let j = 0; j < m; j++) AT[i][j] = A[j][i];
+            }
+            return AT;
+        }
+
+        //Умножение матрицы на число
+        function multMatrixNumber(a, A) {  // a - число, A - матрица (двумерный массив)
+            let m = A.length;
+            let n = A[0].length;
+            let B = [];
+            for (let i = 0; i < m; i++) {
+                B[i] = [];
+                for (let j = 0; j < n; j++) B[i][j] = a * A[i][j];
+            }
+            return B;
+        }
+        //Умножение матриц (в степень)
+        function MultiplyMatrix(A, B) {
+            let rowsA = A.length;
+            let colsA = A[0].length;
+            let rowsB = B.length;
+            let colsB = B[0].length;
+            C = [];
+            if (colsA != rowsB) return false;
+            for (let i = 0; i < rowsA; i++) C[i] = [];
+            for (let k = 0; k < colsB; k++) {
+                for (let i = 0; i < rowsA; i++) {
+                    let t = 0;
+                    for (let j = 0; j < rowsB; j++) t += A[i][j] * B[j][k];
+                    C[i][k] = t;
+                }
+            }
+            return C;
+        }
+
+        //Возведение матрицы в степень
+        function MatrixPow(n, A) {
+            if (n == 1) return A;     // Функцию MultiplyMatrix см. выше
+            else return MultiplyMatrix(A, MatrixPow(n - 1, A));
+        }
+
+        //Сложение матриц //На входе двумерные массивы одинаковой размерности
+        function SumMatrix(A, B) {
+            let m = A.length, n = A[0].length, C = [];
+            for (let i = 0; i < m; i++) {
+                C[i] = [];
+                for (let j = 0; j < n; j++) C[i][j] = A[i][j] + B[i][j];
+            }
+            return C;
+        }
+
+        console.log("Пустая матрица");
+        console.log(massiv);
+        console.log("Единичная матрица");
+        console.log(massiv_1);
+        console.log("Треугольная матрица");
+        console.log(massiv_2);
+        console.log("Транспонированная матрица");
+        console.log(massiv_3);
+        console.log("Транспонированная матрица x 3");
+        console.log(massiv_4);
+        console.log("Возведение матрицы во 2ю степень");
+        console.log(massiv_5);
+        console.log("Сложение матриц A");
+        console.log(massiv_6);
+        console.log("Сложение матриц B");
+        console.log(massiv_7);
+
+    </script>
+</head>
+
+<body>
+    <h1> </h1>
+</body>
+
+</html>

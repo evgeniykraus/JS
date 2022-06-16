@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <script>
+        let E = +prompt("Введите значение E");
+        let k = 1;
+        let sum = 0;
+        let sum_1 = 0;
+        let i = 1;
+
+        if (E <= 0) {
+            alert("Значение числа E должно быть больше нуля");
+        } else {
+            while (i > E) {
+                i = 4 * k / (Math.pow(k, 2) + 8 * Math.sqrt(k));
+                sum += i;
+                k += 1;
+                sum_1 = sum-i;
+            }
+            alert(`Сумма = ${sum_1}`)
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <h1> </h1>
+</body>
+
+</html>

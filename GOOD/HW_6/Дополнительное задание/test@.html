@@ -1,0 +1,25 @@
+<html>
+
+<head>
+    <script>
+        let massiv = [];
+        function Matrix_1() { // Единичная матрица
+            let N = +prompt("Введите количество биатлонистов")
+            let massiv = new Array(N);
+            for (let i = 0; i < N; i++) {
+                for (let j = 0; j < N; j++) {
+                    massiv += prompt("Введите имя " + (i + 1) + " биатлонистa").slice();
+                    break;
+                }
+            }
+            return massiv;
+        }
+        console.log(Matrix_1(massiv))
+    </script>
+</head>
+
+<body>
+    <h1> </h1>
+</body>
+
+</html>

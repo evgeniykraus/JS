@@ -1,0 +1,21 @@
+<html>
+
+<head>
+    <script>
+        let N = +prompt("Введите значение N");
+        let i = 0.1;
+        let result = 1 + Math.sin(i);
+
+        while (result <= N) {
+            i += 0.1;
+            result *= 1 + Math.sin(i);
+        }
+        alert(`N = ${N} \nПроизведение = ${result} `)
+    </script>
+</head>
+
+<body>
+    <h1> </h1>
+</body>
+
+</html>

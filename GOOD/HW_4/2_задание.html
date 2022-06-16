@@ -1,0 +1,63 @@
+<html>
+
+<head>
+    <script>
+
+        // Ввод данных
+        let x1 = Number(prompt("Введите координату х точки A"));
+        let y1 = Number(prompt("Введите координату y точки A"));
+
+        let x2 = Number(prompt("Введите координату х точки B"));
+        let y2 = Number(prompt("Введите координату y точки B"));
+
+        // Решение
+        let OA = Math.sqrt(Math.pow(x1, 2) + Math.pow(y1, 2));
+        let OB = Math.sqrt(Math.pow(x2, 2) + Math.pow(y2, 2));
+
+        function where_A () {
+            if (x1 > 0 && y1 > 0) {
+                console.log("Точка A принадлежит первой четверти")
+            } else if (x1 < 0 && y1 > 0) {
+                console.log("Точка A находится во второй четверти")
+            } else if (x1 < 0 && y1 < 0) {
+                console.log("Точка A принадлежит третьей координатной четверти")
+            } else if (x1 == 0 && y1 == 0) {
+                console.log("Точка A находится в начале координат")
+            } else {
+                console.log("Точка A находится в IV четверти")
+            }
+        }
+        function where_B () {
+            if (x2 > 0 && y2 > 0) {
+                console.log("Точка B принадлежит первой четверти")
+            } else if (x2 < 0 && y2 > 0) {
+                console.log("Точка B находится во второй четверти")
+            } else if (x2 < 0 && y2 < 0) {
+                console.log("Точка B принадлежит третьей координатной четверти")
+            } else if (x2 == 0 && y2 == 0) {
+                console.log("Точка B находится в начале координат")
+            } else {
+                console.log("Точка B находится в IV четверти")
+            }
+        }
+        function where_point () {
+            if (OA > OB) {
+                console.log("Точка B ближе к началу координат")
+            } else if (OA < OB) {
+                console.log("Точка A ближе к началу координат")
+            } else {
+                console.log("Точки находятся на одинаковом расстоянии")
+            }
+        }
+        
+        console.log("Координаты точки A (" + x1 + " ; " + y1 +")");
+        console.log("Координаты точки B (" + x2 + " ; " + y2 +")");
+        where_A() + where_B() + where_point();
+    </script>
+</head>
+
+<body>
+    <h1> </h1>
+</body>
+
+</html>

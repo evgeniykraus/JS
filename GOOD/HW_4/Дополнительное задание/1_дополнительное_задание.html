@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <script>
+
+        // Ввод данных
+        function user_number(prompt_text) {
+            let number = null;
+            while (isNaN(number) || !Number.isInteger(number)) {
+                number = parseInt(prompt(prompt_text));
+            }
+            return number;
+        }
+
+        let A = user_number("Введите число A");
+        let B = user_number("Введите число B");
+        let C = user_number("Введите число C");
+
+        // Решение
+        let raz = 2 * (Math.max(A, B, C) - Math.min(A, B, C));
+        let raz_2 = Math.min(A, B, C) * ((A + B + C) / 3);
+
+        if (raz > raz_2) {
+            alert("Удвоенная разность наибольшего числа и наименьшего числа = " + raz + "\n" +
+                "БОЛЬШЕ ЧЕМ" + "\n" + "Произведение меньшего и среднего числа = " + raz_2)
+        } else if (raz < raz_2) {
+            alert("Удвоенная разность наибольшего числа и наименьшего числа = " + raz + "\n" +
+                "МЕНЬШЕ ЧЕМ" + "\n" + "Произведение меньшего и среднего числа = " + raz_2)
+        } else{
+            alert("Удвоенная разность наибольшего числа и наименьшего числа = " + raz + "\n" +
+                "РАВНА" + "\n" + "Произведению меньшего и среднего числа = " + raz_2)
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1> </h1>
+</body>
+
+</html>

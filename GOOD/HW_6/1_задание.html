@@ -1,0 +1,43 @@
+<html>
+
+<head>
+    <script>
+        let N;
+        let massiv = [];
+        let massiv_2 = [];
+        let vvod = +prompt("Введите 1, чтоб задать массив самостоятельно \nВведите 2, чтоб получить случайный массив");
+
+        switch (vvod) {
+            case 1:
+                N = +prompt("Укажите длину массива")
+                for (let i = 0; i < N; i++) {
+                    massiv[i] = +prompt((i + 1) + " элемент массива равен");
+                } break;
+            case 2:
+                N = +prompt("Укажите длину массива")
+                for (let i = 0; i < N; i++) {
+                    massiv[i] = Number(Math.random().toFixed());
+                } break;
+            default:
+                massiv = [2, 0, 12, 22, 0, 5, 0, 0, 5];
+                break;
+        }
+        for (let i = 0; i < massiv.length; i++) {
+            if (massiv[i] == 0) {
+                massiv_2.push(i);
+            }
+        }
+
+        if (massiv_2 == 0) {
+            alert(`Массив [${massiv}] не содержит нулевых элементов`);
+        } else {
+            alert(`Исходный массив: [${massiv}] \nПолученный  массив: [${massiv_2}]`);
+        }
+    </script>
+</head>
+
+<body>
+    <h1> </h1>
+</body>
+
+</html>

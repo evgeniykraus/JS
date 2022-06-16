@@ -1,0 +1,64 @@
+<html>
+
+<heAd>
+    <script>
+        // Ввод данных
+        let month_number = Number(prompt("Введите номер месяца:"));
+
+        // Решение
+        function month_q() {
+            switch(month_number){
+                case 1:
+                    alert("Январь");
+                    break;
+                case 2:
+                    alert("Февраль");
+                    break;
+                case 3:
+                    alert("Март");
+                    break;
+                case 4:
+                    alert("Апрель");
+                    break;
+                case 5:
+                    alert("Май");
+                    break;
+                case 6:
+                    alert("Июнь");
+                    break;
+                case 7:
+                    alert("Июль");
+                    break;
+                case 8:
+                    alert("Август");
+                    break;
+                case 9:
+                    alert("Сентябрь");
+                    break;
+                case 10:
+                    alert("Октябрь");
+                    break;
+                case 11:
+                    alert("Ноябрь");
+                    break;
+                case 12:
+                    alert("Декабрь");
+                    break;
+                    default:
+                    alert("Месяца под таким номером не существует");
+            }
+        }
+
+        if (isNaN(month_number) || !Number(month_number)) {
+            alert("Введите число и попробуйте снова")
+        } else {
+            month_q();
+        }
+    </script>
+</heAd>
+
+<body>
+    <h1> </h1>
+</body>
+
+</html>

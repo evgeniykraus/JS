@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <script>
+    
+		// Ввод данных
+	     let x1 = Number(prompt ("Введите координату х точки A"));
+		 let y1 = Number(prompt ("Введите координату y точки A"));
+
+		 let x2 = Number(prompt ("Введите координату х точки B"));
+		 let y2 = Number(prompt ("Введите координату y точки B"));
+
+		 let x3 = Number(prompt ("Введите координату х точки C"));
+		 let y3 = Number(prompt ("Введите координату y точки C"));
+		 
+		// Решение
+		 let AB = Math.sqrt(Math.pow(x1-x2,2) + Math.pow(y1-y2,2));
+		 let BC = Math.sqrt(Math.pow(x3-x2,2) + Math.pow(y3-y2,2));
+		 let AC = Math.sqrt(Math.pow(x3-x1,2) + Math.pow(y3-y1,2));
+		 let OB = Math.sqrt(Math.pow(x2,2) + Math.pow(y2,2));
+
+		 let sAB  = Math.PI * Math.pow(AB,2);
+		 let sBC  = Math.PI * Math.pow(BC,2);
+		 let sAC  = Math.PI * Math.pow(AC,2);
+		 let sOB  = Math.PI * Math.pow(OB,2);
+
+		 if (sAB > sBC && sAB > sAC && sAB > sOB) {
+			 alert("Большую площадь имеет круг с радиусом AB")
+		 } else if (sBC > sAB && sBC > sAC && sBC > sOB) {
+			alert("Большую площадь имеет круг с радиусом BC")
+		 } else if (sAC > sAB && sAC > sBC && sAC > sOB) {
+			alert("Большую площадь имеет круг с радиусом AC")
+		 } else if (sOB > sAB && sOB > sBC && sOB > sAC) {
+			alert("Большую площадь имеет круг с радиусом OB")
+		 } else {
+			 alert("Две окружности имеют одинковую длину радиуса, попробуйте еще раз ")
+		 }
+
+    </script>
+</head>
+
+<body>
+    <h1> </h1>
+</body>
+
+</html>

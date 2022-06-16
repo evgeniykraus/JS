@@ -1,0 +1,75 @@
+<html>
+
+<head>
+    <script>
+        //Ввод исходных данных
+        let X = Math.random().toFixed();
+        let Y = Math.random().toFixed();
+        let Z = Math.random().toFixed();
+        let A;
+        let B;
+
+
+        //Решение (x * y -> (y= z) + вывод результата
+        if (X == 1 & Y == 1) {
+            A = 1;
+            console.log("Конъюнкция (x * y)")
+            console.log("X = " + X);
+            console.log("Y = " + Y);
+            console.log(A == 1);
+            console.log("");
+
+        } else {
+            A = 0;
+            console.log("Конъюнкция (x * y)")
+            console.log("X = " + X);
+            console.log("Y = " + Y);
+            console.log(A == 1);
+            console.log("");
+        }
+
+
+        if (Y == Z) {
+            B = 1;
+            console.log("Эквивалентность (y = z)")
+            console.log("Z = " + Z);
+            console.log("Y = " + Y);
+            console.log(Y == Z);
+            console.log("");
+        } else {
+            B = 0;
+            console.log("Эквивалентность (y = z)")
+            console.log("Z = " + Z);
+            console.log("Y = " + Y);
+            console.log(Y == Z);
+            console.log("");
+        }
+
+        if (A == B) {
+            console.log("Импликация (x * y -> (y = z)")
+            console.log("A = " + A);
+            console.log("B = " + B);
+            console.log(A == B);
+            alert("Логическое выражение ( " + X + " * " + Y + " -> " + "("+ Y + " = " + Z + ") "  + (A == B));
+        } else if (A == 0 & B == 1) {
+            console.log("Импликация (x * y -> (y = z)")
+            console.log("A = " + A);
+            console.log("B = " + B);
+            console.log(A == 0);
+            alert("Логическое выражение ( " + X + " * " + Y + " -> " + "("+ Y + " = " + Z + ") "  + (A == 0));
+        } else {
+            console.log("Импликация (x * y -> (y = z)")
+            console.log("A = " + A);
+            console.log("B = " + B);
+            console.log(A == 2);
+            alert("Логическое выражение ( " + X + " * " + Y + " -> " + "("+ Y + " = " + Z + ") "  + (A == 2));
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1> </h1>
+</body>
+
+</html>

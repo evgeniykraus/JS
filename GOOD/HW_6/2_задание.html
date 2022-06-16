@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <script>
+        function getRandomIntInclusive(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        let N;
+        let massiv = [];
+        let massiv_2 = [];
+        let vvod = +prompt("Введите 1, чтоб задать массив самостоятельно \nВведите 2, чтоб получить случайный массив");
+
+        switch (vvod) {
+            case 1:
+                N = +prompt("Укажите длину массива")
+                for (let i = 0; i < N; i++) {
+                    massiv[i] = +prompt((i + 1) + " элемент массива равен");
+                } break;
+            case 2:
+                N = +prompt("Укажите длину массива")
+                for (let i = 0; i < N; i++) {
+                    massiv[i] = getRandomIntInclusive(1, 100);
+                } break;
+            default:
+                massiv = [46, 34, 75, 58, 69, 54, 30, 42, 74, 12];
+                break;
+        }
+        for (let i = 0; i < massiv.length; i++) {
+            if (massiv[i] % 2 == 0) {
+                massiv_2.push(massiv[i]);
+            }
+        }
+
+        if (massiv_2 == 0) {
+            alert(`Массив [${massiv}] не содержит четных чисел`);
+        } else {
+            alert(`Исходный массив: [${massiv}] \nПолученный  массив: [${massiv_2}]`);
+        }
+    </script>
+</head>
+
+<body>
+    <h1> </h1>
+</body>
+
+</html>

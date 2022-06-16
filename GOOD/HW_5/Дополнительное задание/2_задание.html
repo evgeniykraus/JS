@@ -1,0 +1,25 @@
+<html>
+
+<head>
+    <script>
+        let x = 1;
+        const E = +prompt("Введите значение Е");
+        let temp = (-1) ** x / (x * (2 * x + 1));
+        sum = 0;
+
+        while (Math.abs(temp) > E) {
+            sum += temp;
+            x += 1;
+            temp = (-1) ** x / (x * (2 * x + 1));
+        }
+        console.log("Значение выражения = " + temp);
+        console.log("Сумма выражения = " + (sum + temp));
+        console.log("Счетчик = " + x);
+    </script>
+</head>
+
+<body>
+    <h1> </h1>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> Количество дней в месяце </title>
+
+    <script>
+    
+    function getUserNumber(prompt_text) {
+        let user_input = null;
+        while (isNaN(user_input) || !Number.isInteger(user_input)) {
+        user_input = parseInt(prompt(prompt_text));
+        }
+    
+        return user_input;
+    }
+
+    let month = getUserNumber("Введите месяц:");
+    let year = getUserNumber("Введите год:");
+
+    let date_1 = new Date(year, month-1, 1);
+    let date_2 = new Date(year, month, 1);
+    let date_3 = Math.round((date_2 - date_1) / 1000 / 3600 / 24);
+
+    if (year%4 != 0){
+        alert("Дней в этом месяце: " + date_3 + ". Год не високосный (365 дней).");
+    }
+    else if (year%100 != 0){
+        alert("Дней в этом месяце: " + date_3 + ". Год високосный (366 дней).");
+    }
+    else if (year%400 != 0){
+        alert("Дней в этом месяце: " + date_3 + ". Год (365 дней).");
+    }
+    else {
+        alert("Дней в этом месяце: " + date_3 + ". Год високосный (366 дней).");
+    }
+    // console.log(date_1);
+    // console.log(date_2);
+    // console.log(date_3);
+
+    </script>
+    
+</head>
+
+<body>
+    <h1>  </h1>
+</body>
+
+</html?>
