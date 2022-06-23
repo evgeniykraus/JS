@@ -1,0 +1,43 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <script>
+
+        let e = 0.000001;
+
+        function func(x) {
+            return 3 * x - Math.sin(x) - 7;
+        }
+
+        function find_sqrt(a, b) {
+            if (func(a) * func(b) >= 0) {
+                alert(`В данном интервале [${a}; ${b}] нет корней (${func(a).toFixed(4)}*${func(a).toFixed(4)} >= 0)`);
+                return;
+            }
+
+            let c = a;
+            while ((b - a) >= e) {
+                // Середина интервала
+                c = (a + b) / 2;
+                if (func(c) == 0.0)
+                    break;
+
+                else if (func(c) * func(a) < 0)
+                    b = c;
+                else
+                    a = c;
+            }
+            alert("Значение корня : " + c + "\nТочность : " + e);
+        }
+
+        let a = +prompt("Искать корень в интервале от:", -10);
+        let b = +prompt("Искать корень в интервале до:", 10);
+        find_sqrt(a, b);
+    </script>
+
+</body>
+
+</html>

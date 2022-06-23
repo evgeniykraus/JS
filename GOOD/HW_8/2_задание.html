@@ -1,0 +1,26 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <script>
+        function func_calc(n) {
+            let F = new Array(n);
+            for (let i = 0; i <= n; i++) {
+                if (i <= 5) {
+                    F[i] = 2 * i;
+                } else if (i > 5 && i % 2 == 0) {
+                    F[i] = F[i - 2] + 3 * F[i / 2] + i;
+                } else {
+                    F[i] = F[i - 1] + F[i - 2] + F[i - 3];
+                }
+            }
+            return F[n];
+        }
+
+        alert("Значение функции F(99) + F(100) = " + (func_calc(99) + func_calc(100)));
+    </script>
+</body>
+
+</html>

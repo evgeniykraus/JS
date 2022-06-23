@@ -50,7 +50,6 @@
                 n = arr.length;
                 break;
         }
-
         let M1 = arr;
         let M2 = matrix_b(M1)
         let M3 = add_zero(M1)
@@ -141,25 +140,23 @@
             console.log(M5);
         }
 
-        //Вывод M2
-        document.write("<table border='1' width=20% height=20% align=center bgcolor=white>>");
-        document.write('<caption><h3>Матрица M2</h3></caption>');
-        for (let i = 0; i < n; i++) {
-            document.write("<tr>");
-            for (let j = 0; j < n; j++) {
-                document.write("<td align='center'>" + M2[i][j] + "</td>");
+        //Вывод матрицы
+        function output_matrix(matrix, name) {
+            document.write("<table border='1' width=20% height=20% align=center bgcolor=white>>");
+            document.write("<caption><h3> " + "Матрица" + " " + name + "</h3></caption>");
+            for (let i = 0; i < n; i++) {
+                document.write("<tr>");
+                for (let j = 0; j < n; j++) {
+                    document.write("<td align='center'>" + matrix[i][j] + "</td>");
+                }
             }
         }
 
-        //Вывод M5
-        document.write("<table border='1' width=20% height=20% align=center bgcolor=white>>");
-        document.write('<caption><h3>Матрица M5</h3></caption>');
-        for (let i = 0; i < n; i++) {
-            document.write("<tr>");
-            for (let j = 0; j < n; j++) {
-                document.write("<td align='center'>" + M5[i][j] + "</td>");
-            }
-        }
+        output_matrix(M1, 'M1');
+        output_matrix(M2, 'M2');
+        output_matrix(M3, 'M3');
+        output_matrix(M4, 'M4');
+        output_matrix(M5, 'M5');
 
     </script>
 </body>

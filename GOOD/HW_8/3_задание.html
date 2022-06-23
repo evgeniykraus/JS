@@ -1,0 +1,29 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <script>
+        function dell_space(string) {
+            return string.replace(/\s+/g, ' ').trim();
+        }
+
+
+        let input = +prompt('1 - ввести предложение самому \nНажмите "OK", чтобы получить стандартное предложение');
+        let str;
+
+        switch (input) {
+            case 1:
+                str = prompt("Чтобы вы не вели, между словами останется один пробел.");
+                alert("Исходное предложение: " + str + "\n" + "Пробелы удалены: " + dell_space(str));
+                break;
+            default:
+                str = "    Пробелов   больше             нет       !";
+                alert("Исходное предложение: " + str + "\n" + "Пробелы удалены: " + dell_space(str));
+                break;
+        }
+    </script>
+</body>
+
+</html>
