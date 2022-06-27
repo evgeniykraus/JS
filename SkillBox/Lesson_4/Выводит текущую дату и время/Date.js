@@ -1,4 +1,3 @@
-let d = new Date();
 let hour = ['час', 'часа', 'часов'];
 let minute = ['минута', 'минуты', 'минут'];
 let sec = ['секунда', 'секунды', 'секунд'];
@@ -16,8 +15,8 @@ function getNumEnding(iNumber, aEndings) {
         i = iNumber % 10;
         switch (i) {
             case (1): sEnding = aEndings[0]; break;
-            case (2):
-            case (3):
+            case (2): sEnding = aEndings[1]; break;
+            case (3): sEnding = aEndings[1]; break;
             case (4): sEnding = aEndings[1]; break;
             default: sEnding = aEndings[2];
         }
