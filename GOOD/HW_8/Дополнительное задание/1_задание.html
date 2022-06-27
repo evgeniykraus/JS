@@ -1,0 +1,36 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <script>
+        function get_user_number(prompt_text) {
+            let user_input;
+            let temp;
+            while (isNaN(temp) || !Number.isInteger(temp) || temp < 0) {
+                user_input = prompt(prompt_text);
+                if (user_input == null) {
+                    throw "stop";
+                } else {
+                    temp = parseInt(user_input);
+                }
+            } return temp;
+        }
+
+        function equal(N, S) {
+            if (N < 10) {
+                return N == S;
+            } else {
+                return equal(parseInt(N / 10), S - N % 10);
+            }
+        }
+
+        let N = get_user_number("Введите неотрицательное целое число N");
+        let S = get_user_number("Введите неотрицательное целое число S");
+
+        alert("equal(" + N + ", " + S + ") = " + equal(N, S));
+    </script>
+</body>
+
+</html>

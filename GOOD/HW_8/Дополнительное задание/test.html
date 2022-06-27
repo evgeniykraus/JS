@@ -1,0 +1,30 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <script>
+        //R(n) = R(n−1) + R(n/2)(если n — чётно).
+
+
+        function F() {
+            let R = [1];
+            let count = 1;
+            while (count <= 10) {
+                if (count % 2 != 0) {
+                    R[count] = R[count - 1];
+                    count += 1;
+                } else {
+                    R[count] = (R[count - 1] + R[count / 2]);
+                    count += 1;
+                }
+            } return R[R.length - 1];
+        }
+
+        console.log(F());
+
+    </script>
+</body>
+
+</html>
