@@ -1,0 +1,75 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <script>
+        function get_user_number(prompt_text) {
+            let user_input;
+            let temp;
+            while (isNaN(temp) || !Number.isInteger(temp) || temp < 0 || temp > 100) {
+                user_input = prompt(prompt_text);
+                if (user_input == null) {
+                    throw "stop";
+                } else {
+                    temp = parseInt(user_input);
+                }
+            } return temp;
+        }
+
+        function output_matrix(matrix) {
+            document.write("<table border='1' width=20% height=20% align=center bgcolor=white>>");
+            document.write("<caption><h3>Входные данные</h3></caption>");
+            for (let i = 0; i < n; i++) {
+                document.write("<tr>");
+                for (let j = 0; j < n; j++) {
+                    document.write("<td align='center'>" + matrix[i][j] + "</td>");
+                }
+            }
+        }
+
+        let arr = [];
+        let input = +prompt('1 - получить случайную матрицу \nНажмите "OK", чтобы получить стандартную матрицу');
+        let n;
+        let res = 0;
+
+        switch (input) {
+            case 1:
+                n = get_user_number("Введите N (количество городов)\nЗначение не должно быть меньше 0 и больше 100!");
+                for (let i = 0; i < n; i++) {
+                    arr[i] = [];
+                    for (let j = 0; j < n; j++) {
+                        arr[i][j] = Math.round(Math.random());
+                    }
+
+                }
+                break;
+
+            default:
+                arr = [
+                    [0, 1, 1, 0, 0],
+                    [1, 0, 1, 1, 0],
+                    [1, 1, 0, 0, 0],
+                    [0, 1, 0, 0, 1],
+                    [0, 0, 0, 1, 0],
+                ];
+                n = arr.length;
+                break;
+        }
+
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr.length; j++) {
+                res += arr[i][j];
+            }
+        }
+
+        output_matrix(arr);
+        document.write("<div><center>На планете Neptune городов: " + n + "</center></div>")
+        document.write("<div><center>Количество дорог, соединяющих города: " + Math.floor(res / 2) + "</center></div>")
+
+    </script>
+
+</body>
+
+</html>

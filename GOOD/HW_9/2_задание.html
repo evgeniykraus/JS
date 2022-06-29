@@ -1,0 +1,76 @@
+<head>
+</head>
+
+<body>
+
+    <script>
+        function get_user_number(prompt_text) {
+            let user_input;
+            let temp;
+            while (isNaN(temp) || !Number.isInteger(temp) || temp < 1 || temp > 5) {
+                user_input = prompt(prompt_text);
+                if (user_input == null) {
+                    throw "stop";
+                } else {
+                    temp = parseInt(user_input);
+                }
+            } return temp;
+        }
+
+        function bfs(arr, start, end) {
+            let queue = [start]
+            let prev = { [start]: null }
+
+            while (queue.length > 0) {
+                let curr = queue.shift();
+
+                if (curr === end) {
+                    let path = [];
+
+                    while (curr) {
+                        path.unshift(curr);
+                        curr = prev[curr];
+                    }
+
+                    return path;
+                }
+
+                if (curr in arr) {
+                    for (let v of arr[curr]) {
+                        if (!(v in prev)) {
+                            prev[v] = curr;
+                            queue.push(v);
+                        }
+                    }
+                }
+            }
+        }
+
+        let arr = {
+            "1": [5, 2],
+            "2": [1, 3],
+            "3": [2],
+            "4": [],
+            "5": [1]
+        }
+
+        let start = get_user_number("Введите вершину, из которой хотите найти кратчайших путь\nЗначение не должно быть меньше 1 и больше 5!");
+        let end = get_user_number("Введите конечную вершину кратчайшего пути\nЗначение не должно быть меньше 1 и больше 5!");
+
+
+        let temp = bfs(arr, start, end);
+        if (temp) {
+            console.log("Длина кратчайшего пути: " + (temp.length - 1));
+            console.log("Путь из точки [" + start + "] в точку [" + end + "]: " + temp.toString().replaceAll(",", "⇒"));
+        } else {
+            console.log("Длина кратчайшего пути: -1");
+            console.log("Путь из точки [" + start + "] в точку [" + end + "] невозможен!");
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
