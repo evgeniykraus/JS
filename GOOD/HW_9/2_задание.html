@@ -56,9 +56,8 @@
 
         let start = get_user_number("Введите вершину, из которой хотите найти кратчайших путь\nЗначение не должно быть меньше 1 и больше 5!");
         let end = get_user_number("Введите конечную вершину кратчайшего пути\nЗначение не должно быть меньше 1 и больше 5!");
-
-
         let temp = bfs(arr, start, end);
+
         if (temp) {
             console.log("Длина кратчайшего пути: " + (temp.length - 1));
             console.log("Путь из точки [" + start + "] в точку [" + end + "]: " + temp.toString().replaceAll(",", "⇒"));
