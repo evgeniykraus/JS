@@ -37,22 +37,25 @@
         switch (input) {
             case 1:
                 n = get_user_number("Введите N (количество городов)\nЗначение не должно быть меньше 0 и больше 100!");
-                for (let i = 0; i < n; i++) {
+                for (let i = 0; i < n; i++)
                     arr[i] = [];
-                    for (let j = 0; j < n; j++) {
-                        arr[i][j] = Math.round(Math.random());
+                for (let i = 0; i < n; i++) {
+                    for (let j = i; j < n; j++) {
+                        if (i == j)
+                            arr[i][j] = 0;
+                        else
+                            arr[i][j] = arr[j][i] = Math.round(Math.random());
                     }
-
                 }
                 break;
 
             default:
                 arr = [
+                    [0, 1, 1, 1, 0],
+                    [1, 0, 1, 0, 1],
+                    [1, 1, 0, 1, 1],
+                    [1, 0, 1, 0, 0],
                     [0, 1, 1, 0, 0],
-                    [1, 0, 1, 1, 0],
-                    [1, 1, 0, 0, 0],
-                    [0, 1, 0, 0, 1],
-                    [0, 0, 0, 1, 0],
                 ];
                 n = arr.length;
                 break;
@@ -66,7 +69,7 @@
 
         output_matrix(arr);
         document.write("<div><center>Городов на планете Neptune: " + n + "</center></div>")
-        document.write("<div><center>Количество дорог, соединяющих города: " + Math.floor(res / 2) + "</center></div>")
+        document.write("<div><center>Количество дорог, соединяющих города: " + (res / 2) + "</center></div>")
 
     </script>
 

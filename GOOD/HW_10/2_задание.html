@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2_задание</title>
+</head>
+
+<body>
+    <script>
+        class Bank_account {
+            constructor(num, name, surname, full_name, sum, percent) {
+                this.num = num;
+                this.name = name;
+                this.surname = surname;
+                this.get_full_name = this.name + " " + this.surname;
+                this.sum = 0;
+                this.percent = 20;
+            }
+
+            //Внести средства
+            deposit_money = function (money) {
+                if (!isNaN(money * 1)) {
+                    return this.sum += money;
+                }
+            }
+
+            //Начислить проценты
+            calc_percent = function () {
+                return this.sum += (this.percent * this.sum) / 100;
+            }
+        }
+
+        class Accounts {
+            constructor() {
+                this.Accounts = new Array();
+            }
+            //Создает новый элемент класса Bank_account и добавляет его в массив
+            new_depositor = function (name, surname) {
+                let num = this.Accounts.length + 1;
+                let temp = new Bank_account(num, name, surname);
+                this.Accounts.push(temp);
+                return temp;
+            }
+        }
+
+
+        let user = new Accounts();
+        user.new_depositor("Валерий", "Жмышенко");
+        user.new_depositor("Виталий", "Цаль");
+
+        console.log("Пользователь № " + user.Accounts[0].num);
+        console.log(user.Accounts[0].get_full_name);
+        console.log("Остаток на счете: " + user.Accounts[0].sum);
+        console.log("Процентная ставка: " + user.Accounts[0].percent + "%");
+    </script>
+</body>
+
+</html>

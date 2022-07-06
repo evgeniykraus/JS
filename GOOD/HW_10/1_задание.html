@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1_задание</title>
+</head>
+
+<body>
+    <script>
+        function get_user_number(prompt_text) {
+            let user_input;
+            let temp;
+            while (isNaN(temp) || temp < 0) {
+                user_input = prompt(prompt_text);
+                if (user_input == null) {
+                    throw "stop";
+                } else {
+                    temp = 1 * user_input;
+                }
+            } return temp;
+        }
+
+        class Worker {
+            constructor(name, surname, rate, days) {
+                this.name = name;
+                this.surname = surname;
+                this.rate = rate;
+                this.days = days;
+            }
+
+            get_full_name = function () {
+                return this.name + " " + this.surname;
+            }
+
+            get_salary = function () {
+                return this.days * this.rate;
+            }
+        }
+
+        let input = +prompt('1 - задать данные самостоятельно \nНажмите "OK", чтобы получить стандартные данные');
+        let worker_1;
+
+        switch (input) {
+            case 1:
+                worker_1 = new Worker(prompt("Имя сотрудника:"), prompt("Фамилия сотрудника:"), get_user_number("Оплата за день:"), parseInt(get_user_number("Количество отработанных дней:")));
+                break;
+            default:
+                worker_1 = new Worker("Евгений", "Краус", 100, 30);
+                break;
+        }
+
+        console.log("Сотрудник: " + worker_1.get_full_name() + "\nЗарплата: " + worker_1.get_salary() + "$");
+        console.log("Ставка за день работы: " + worker_1.rate + "$\nКоличество отработанных дней: " + worker_1.days);
+    </script>
+</body>
+
+</html>
