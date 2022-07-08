@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2_задание</title>
+</head>
+
+<body>
+    <script>
+
+        class Validator {
+            constructor() { }
+            is_email = function (str) {
+                let email = str.match(/^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i)
+                return email == null ? false : true;
+            }
+            is_domain = function (str) {
+                let domain = str.match(/(?:[-\w]+\.)?([-\w]+)\.\w+(?:\.\w+)?\/?.*/i);
+                return domain == null ? false : true;
+            }
+            is_date = function (str) {
+                let date = str.match(/[0-9]{2}\.[0-9]{2}\.[0-9]{4}/);
+                return date == null ? false : true;
+            }
+            is_phone = function (str) {
+                let phone = str.match(/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/);
+                return phone == null ? false : true;
+            }
+        }
+
+        let validator = new Validator();
+
+        let input = +prompt('1 - проверить Email \n2 - проверить домен \n3 - проверить дату \n3 - проверить номер телефона');
+
+        switch (input) {
+            case 1:
+                alert(validator.is_email(prompt('Введите Email:', 'test@mail.ru')))
+                break;
+            case 2:
+                alert(validator.is_domain(prompt('Введите домен:', 'webinar.ru')))
+                break;
+            case 3:
+                alert(validator.is_date(prompt('Введите дату:', '24.02.2022')))
+                break;
+            case 4:
+                alert(validator.is_phone(prompt('Введите номер телефона:', '88005553535')))
+                break;
+            default:
+                break;
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1_задание</title>
+</head>
+
+<body>
+    <script>
+        function get_user_number(prompt_text) {
+            let user_input;
+            let temp;
+            while (isNaN(temp) || temp < 0) {
+                user_input = prompt(prompt_text);
+                if (user_input == null) {
+                    throw "stop";
+                } else {
+                    temp = 1 * user_input;
+                }
+            } return temp;
+        }
+
+        class User {
+            constructor(name, surname) {
+                this.name = name;
+                this.surname = surname;
+            }
+            get_full_name = function () {
+                return this.name + " " + this.surname;
+            }
+        }
+
+        class Student extends User {
+            constructor(name, surname, year) {
+                super(name, surname);
+                this.year = year;
+            }
+            get_course = function () {
+                if (1 <= new Date().getFullYear() - this.year && new Date().getFullYear() - this.year <= 5) {
+                    return new Date().getFullYear() - this.year;
+                } else if (new Date().getFullYear() - this.year > 5) {
+                    return ("Обучение закончено!");
+                } else {
+                    return ("Ещё не студент!")
+                }
+            }
+        }
+
+        let input = +prompt('1 - задать данные самостоятельно \nНажмите "OK", чтобы получить стандартные данные');
+        let student_1;
+
+        switch (input) {
+            case 1:
+                student_1 = new Student(prompt("Имя студента:"), prompt("Фамилия студента:"), parseInt(get_user_number("Год поступления в вуз:")));
+                break;
+            default:
+                student_1 = new Student("Валерий", "Жмых", 2021);
+                break;
+        }
+
+        console.log("Полное имя: " + student_1.get_full_name());
+        console.log("Курс: " + student_1.get_course());
+        console.table(student_1);
+    </script>
+</body>
+
+</html>
