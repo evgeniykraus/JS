@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3_задание</title>
+    <script>
+        function get_hash(user_password, numeral_system) {
+            let sum = 0;
+            for (let i = 0; i < user_password.toString().length; i++) {
+                sum += user_password.toString().charCodeAt(i);
+            }
+            return (sum % 256).toString(numeral_system).toUpperCase();
+        }
+
+        function hack_hash() {
+            let new_hash;
+            for (let i = 0; i < work.length; i++) {
+                for (let j = 0; j < work.length; j++) {
+                    new_hash = get_hash(work[i] + work[j], 16);
+                    if (new_hash == get_hash(password, 16)) {
+                        pass_arr.push(work[i] + work[j]);
+                    }
+                }
+            }
+        }
+
+        let work = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        // добавляет в массив буквы нижнего регистра
+        for (let i = 97; i <= 122; i++) {
+            work.push(String.fromCharCode(i));
+        }
+        // добавляет в массив буквы верхнего регистра
+        for (let i = 65; i <= 90; i++) {
+            work.push(String.fromCharCode(i));
+        }
+        let password = "qwerty"
+        let pass_arr = [];
+
+        hack_hash();
+        alert("Пароль: " + password + "\nХеш: " + get_hash(password, 16) + "\nНашлось " + pass_arr.length + " двузначных паролей, имеющих такой хеш\nВот один из них: " + pass_arr[Math.floor(Math.random() * pass_arr.length) + 0]);
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1_задание</title>
+    <script>
+        let user_password = prompt("Введите пароль:");
+        let numeral_system = +prompt("Введите систему счисления:");
+
+        function get_hash(user_password, numeral_system) {
+            let sum = 0;
+            for (let i = 0; i < user_password.length; i++) {
+                sum += user_password.charCodeAt(i);
+            }
+            return (sum % 256).toString(numeral_system).toUpperCase();
+        }
+        
+        alert("Хэш-код: " + get_hash(user_password, numeral_system)); 
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
