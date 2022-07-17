@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function get_hash(user_password, numeral_system) {
+            let sum = 0;
+            for (let i = 0; i < user_password.toString().length; i++) {
+                sum += user_password.toString().charCodeAt(i);
+            }
+            return (sum % 256).toString(numeral_system).toUpperCase();
+        }
+
+        function comb_hash(arr, l) {
+            let data = Array(l),
+                results = [];
+            (function f(pos, start) {
+                if (pos === l) {
+                    results.push(data.slice());
+                    let str = data.join('')
+                    if (get_hash(str, 16) == password) {
+                        res.push(str);
+                    }
+                    return;
+                }
+                for (let i = start; i < arr.length; ++i) {
+                    data[pos] = arr[i];
+                    f(pos + 1, i);
+                }
+            })(0, 0);
+        }
+        function chek_hash() {
+            let user_password = prompt("Введите пароль");
+            if (user_password != null && user_password != '') {
+                alert(get_hash(user_password, 16))
+            }
+        }
+
+        const password = get_hash("qwerty", 16);
+        const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+        let res = [];
+
+        for (let i = 0; i <= arr.length; i++) {
+            comb_hash(arr, i)
+        }
+
+        document.write(`Пароль: qwerty <br> Система счисления: 16 <br> Хэш: ${password} <br> Нашлось ${res.length} подходящих паролей, имеющих такой хеш <br> Вот один из них: ${res[Math.floor(Math.random() * res.length) + 0]}<br>`);
+    </script>
+
+</head>
+
+<body>
+    <button onclick="chek_hash()">Проверить хеш</button>
+</body>
+
+</html>
