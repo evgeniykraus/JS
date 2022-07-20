@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <input type="text" id="inp1" placeholder="Название города" oninput="Ftest (this)"
+        onpropertychange="if ('v' == '\v' && parseFloat (navigator.userAgent.split ('MSIE ') [1].split (';') [0]) <= 9) Ftest (this)" />
+    <button type="button" style="width: 7%;" onclick="button_1()">Кешировать</button>
+    <br>
+    <input type="text" id="inp2" placeholder="Название города" oninput="Ftest (this)"
+        onpropertychange="if ('v' == '\v' && parseFloat (navigator.userAgent.split ('MSIE ') [1].split (';') [0]) <= 9) Ftest (this)" />
+    <button type="button" style="width: 7%;" onclick="button_2()">Найти в кеше</button>
+    <br>
+    <input type="text" id="inp3" placeholder="Название города" oninput="Ftest (this)"
+        onpropertychange="if ('v' == '\v' && parseFloat (navigator.userAgent.split ('MSIE ') [1].split (';') [0]) <= 9) Ftest (this)" />
+    <button type="button" style="width: 7%;" onclick="button_3()">Удалить</button>
+    <br>
+    <div id="inner_4"></div>
+    <div id="inner_5"></div>
+    <br>
+    <button style="width: 8%;" onclick="button_4()">Кешировать всё</button>
+    <button style="width: 14%;" onclick="button_5()">Отобразить таблицу в консоли</button>
+
+    <script src="cache.js"></script>
+    <script src="cities.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <input type="number" id="inp1" placeholder="Введите число" oninput="Ftest (this)"
+        onpropertychange="if ('v' == '\v' && parseFloat (navigator.userAgent.split ('MSIE ') [1].split (';') [0]) <= 9) Ftest (this)" />
+    <button onclick="button_1()">Добавить число в кеш</button>
+    <br>
+    <input type="number" id="inp2" placeholder="Введите число" oninput="Ftest (this)"
+        onpropertychange="if ('v' == '\v' && parseFloat (navigator.userAgent.split ('MSIE ') [1].split (';') [0]) <= 9) Ftest (this)" />
+    <button onclick="button_2()">Запросить число из кеша</button>
+
+    <table id="table" width="650" border="1" cellspacing="0" cellpadding="5">
+        <tr>
+            <th scope="col">Запрашивался только что</th>
+            <th scope="col">Запрашивался недавно</th>
+            <th scope="col">Запрашивался давно</th>
+        </tr>
+        <tr>
+            <th scope="col">
+                <div id="inner_3"></div>
+            </th>
+            <th scope="col">
+                <div id="inner_2"></div>
+            </th>
+            <th scope="col">
+                <div id="inner_1"></div>
+            </th>
+        </tr>
+
+    </table>
+    <div id="inner_4"></div>
+    <div id="inner_5"></div>
+
+    <script src="cache.js"></script>
+</body>
+
+</html>
