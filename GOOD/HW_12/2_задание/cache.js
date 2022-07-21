@@ -51,7 +51,7 @@ class City {
         city = [city];
         if (temp.cities_hash[hash]) {
             if (temp.cities_hash[hash].includes(city[0])) {
-                temp.cities_hash[hash].splice(temp.cities_hash[hash].indexOf(city), 1);
+                temp.cities_hash[hash].splice(temp.cities_hash[hash].indexOf(city[0]), 1);
                 document.getElementById("inner_4").innerHTML = city + " был удален";
                 document.getElementById("inner_5").innerHTML = "";
             } else {
